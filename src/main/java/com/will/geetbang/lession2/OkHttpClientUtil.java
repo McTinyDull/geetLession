@@ -50,11 +50,11 @@ public class OkHttpClientUtil {
     }
 
 
-    public Map<String, Object> post(String url, Map<String, Object> params) throws IOException {
+    public Response post(String url, Map<String, Object> params) throws IOException {
         return post(url,params,null);
     }
 
-    public Map<String, Object> post(String url, Map<String, Object> params,Map<String,String> headers) throws IOException {
+    public Response post(String url, Map<String, Object> params,Map<String,String> headers) throws IOException {
         String tag = UUID.randomUUID().toString();
         String postData = JSON.toJSONString(params);
 //        Log.message(String.format("httpclient send,url:%s,param:%s,headers:%s,uuid:%s",url,params==null?"":postData,headers==null?"":headers,tag));
@@ -63,10 +63,7 @@ public class OkHttpClientUtil {
         if(headers!=null && !headers.isEmpty()){
             headers.forEach(builder::addHeader);
         }
-        Response response = okHttpClient.newCall(builder.url(url).post(body).build()).execute();
-        String respStr = response.body().string();
-//        Log.message(String.format("httpclient resp ,uuid:%s , resp:%s", tag, respStr));
-        return JSON.parseObject(respStr, Map.class);
+        return okHttpClient.newCall(builder.url(url).post(body).build()).execute();
     }
 
 
