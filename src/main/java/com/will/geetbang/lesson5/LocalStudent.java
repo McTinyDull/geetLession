@@ -8,7 +8,7 @@ import lombok.Data;
  * @Date 2022/4/3 10:03 PM
  */
 @Data
-public class Student {
+public class LocalStudent {
     private String name;
     private int age;
 }

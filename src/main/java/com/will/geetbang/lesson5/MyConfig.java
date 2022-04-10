@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConfig {
     @Bean
-    public Student getStudent(){
-        Student student = new Student();
+    public LocalStudent getLocalStudent(){
+        LocalStudent student = new LocalStudent();
         student.setName("will");
         student.setAge(18);
         return student;
