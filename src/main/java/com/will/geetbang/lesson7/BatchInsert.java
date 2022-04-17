@@ -1,4 +1,4 @@
-package com.will.geetbang.lesson6;
+package com.will.geetbang.lesson7;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
